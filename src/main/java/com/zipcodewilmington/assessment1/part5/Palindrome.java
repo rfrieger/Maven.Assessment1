@@ -6,8 +6,6 @@ public class Palindrome {
         String[] letterArr = input.split("");
         Integer count = letterArr.length; //handles all single letters
 
-// need to handle for even num of letter cases :(
-
 
         for (int i = 0; i <letterArr.length ; i++) {
             //check if letter +1 index is same, if so count ++
