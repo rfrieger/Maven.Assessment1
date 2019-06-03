@@ -6,8 +6,6 @@ public class Jumper {
      * Complete the function below.
      */
     public int jumps(int k, int j) {
-        // k = flaghight
-        //j max jump
 
         int remainder = k % j;
         int longjumps = (k - remainder) / j;

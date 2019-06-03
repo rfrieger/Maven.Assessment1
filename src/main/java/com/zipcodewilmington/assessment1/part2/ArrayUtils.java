@@ -2,6 +2,8 @@ package com.zipcodewilmington.assessment1.part2;
 
 //import org.omg.CORBA.Object;
 
+import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -31,9 +33,9 @@ public class ArrayUtils {
      * @return an array with identical content excluding the specified `objectToRemove`
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
-    public static Integer[] removeValue(Integer[] objectArray, Integer objectToRemove) {
+    public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
 
-        ArrayList<Integer> newArr= new ArrayList<Integer>();
+        ArrayList<Object> newArr= new ArrayList<Object>();
         ;
         for (int i = 0; i <objectArray.length ; i++) {
             if(!objectArray[i].equals(objectToRemove)) {
@@ -41,11 +43,12 @@ public class ArrayUtils {
             }
         }
 
-        Integer[] returnArr = new Integer[newArr.size()];
+        Object[] returnArr = new Integer[newArr.size()];
 
         for (int i = 0; i <newArr.size() ; i++) {
             returnArr[i] = newArr.get(i);
         }
+
         return returnArr;
 
 
