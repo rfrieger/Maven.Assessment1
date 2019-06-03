@@ -14,14 +14,11 @@ public class PetOwner {
      * @param name name of the owner of the Pet
      * @param pets array of Pet object
      */
+
+
     public PetOwner(String name, Pet... pets) {
         this.name = name;
         this.pets = pets;
-
-
-
-
-
 
     }
 
@@ -29,22 +26,22 @@ public class PetOwner {
      * @param pet pet to be added to the composite collection of Pets
      */
     public void addPet(Pet pet) {
-        if(pets.length > 0) {
+       if (pets == null){
+            pets = new Pet[1];
+            pets[0] = pet;
+       }else if(pets.length > 0) {
             pets[pets.length +1 ] = pet;
+            System.out.println(pets[1]);
         } else pets[0] = pet;
+
     }
 
     /**
      * @param pet pet to be removed from the composite collection Pets
      */
     public void removePet(Pet pet) {
-
-        for (int i = 0; i <pets.length ; i++) {
-            if (pets[i].equals(pet)) {
-
-            }
-        }
-
+        int holdPetLegth = pets.length;
+        pets = new Pet[pets.length];
     }
 
     /**
@@ -68,11 +65,14 @@ public class PetOwner {
     public Integer getYoungetPetAge() {
         Integer yougest = 0;
         for (int i = 0; i <pets.length ; i++) {
-
-            if(pets[i].age < pets[i + 1].age) {
-                System.out.println(pets[i].name);
-                System.out.println(pets[i].age);
-                yougest = pets[i].age;
+            if (i < pets.length - 1) {
+                if (pets[i].getAge() < pets[i + 1].getAge()) {
+                    yougest = pets[i].getAge();
+                }
+            } else if (i == pets.length -1) {
+                if (pets[i].getAge() < pets[i - 1].getAge()) {
+                    yougest = pets[i].getAge();
+                }
             }
         }
         return yougest;
@@ -86,9 +86,15 @@ public class PetOwner {
      */
     public Integer getOldestPetAge() {
         Integer oldest = 0;
-        for (int i = 0; i <pets.length ; i++) {
-            if(pets[i].age > pets[i + 1].age) {
-                oldest = pets[i].age;
+        for (int i = 0; i <pets.length; i++) {
+            if (i < pets.length - 1) {
+                if (pets[i].getAge() > pets[i + 1].getAge()) {
+                    oldest = pets[i].getAge();
+                }
+            } else if (i == pets.length -1) {
+                if (pets[i].getAge() > pets[i - 1].getAge()) {
+                    oldest = pets[i].getAge();
+                }
             }
         }
         return oldest;
@@ -101,7 +107,7 @@ public class PetOwner {
     public Float getAveragePetAge() {
         Float sum = 0f;
         for (int i = 0; i <this.pets.length ; i++) {
-            sum += pets[i].age;
+            sum += pets[i].getAge();
         }
         return sum / pets.length;
     }
