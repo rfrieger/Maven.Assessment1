@@ -40,8 +40,17 @@ public class PetOwner {
      * @param pet pet to be removed from the composite collection Pets
      */
     public void removePet(Pet pet) {
-        int holdPetLegth = pets.length;
-        pets = new Pet[pets.length];
+        int holdPetLegth = pets.length ;
+
+
+        Pet[] arr = new Pet[holdPetLegth];
+        int counter = 0;
+        for (int i = 0; i <holdPetLegth ; i++) {
+            if (pets[i] != pet) {
+                arr[counter] = pets[i];
+            }
+        }
+        pets = arr;
     }
 
     /**

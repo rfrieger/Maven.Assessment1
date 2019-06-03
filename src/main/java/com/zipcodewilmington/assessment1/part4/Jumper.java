@@ -9,7 +9,6 @@ public class Jumper {
 
         int remainder = k % j;
         int longjumps = (k - remainder) / j;
-
         return remainder + longjumps;
     }
 

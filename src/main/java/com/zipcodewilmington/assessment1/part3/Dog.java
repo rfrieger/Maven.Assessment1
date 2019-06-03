@@ -6,7 +6,7 @@ package com.zipcodewilmington.assessment1.part3;
 public class Dog extends Pet {
     String name;
     Integer age;
-    PetOwner owner;
+
     /**
      * @param name name of this Dog
      * @param age age of this dog
@@ -14,7 +14,7 @@ public class Dog extends Pet {
     public Dog(String name, Integer age) {
         this.name = name;
         this.age = age;
-        this.owner =null;
+        super.owner =null;
     }
 
     /**
@@ -23,7 +23,7 @@ public class Dog extends Pet {
     public Dog(Integer age) {
         this.age = age;
         this.name = "Dog name";
-        this.owner =null;
+        super.owner =null;
     }
 
     /**
@@ -32,7 +32,7 @@ public class Dog extends Pet {
     public Dog(String name) {
         this.name = name;
         this.age = 0;
-        this.owner =null;
+        super.owner =null;
 
     }
 
@@ -43,7 +43,7 @@ public class Dog extends Pet {
      * age is 0
      */
     public Dog() {
-        this.owner =null;
+        super.owner =null;
         this.age = 0;
         this.name = "Dog name";
     }
