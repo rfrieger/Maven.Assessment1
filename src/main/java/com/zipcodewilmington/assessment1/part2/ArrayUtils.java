@@ -114,10 +114,15 @@ public class ArrayUtils {
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        Object[] mergedArr = new Object[objectArray.length + objectArrayToAdd.length+10];
+        Object[] mergedArr = new Object[objectArray.length + objectArrayToAdd.length];
 
-        System.arraycopy(objectArray, 0, mergedArr, 0, objectArray.length);
-        System.arraycopy(objectArrayToAdd,0, mergedArr, objectArray.length+1, objectArrayToAdd.length);
+        for (int i = 0; i <objectArray.length ; i++) {
+            mergedArr[i] = objectArray[i];
+            mergedArr[i + objectArray.length] = objectArrayToAdd[i];
+        }
+
+        //System.arraycopy(objectArray, 0, mergedArr, 0, objectArray.length);
+        //System.arraycopy(objectArrayToAdd,0, mergedArr, objectArray.length+1, objectArrayToAdd.length);
 
         return mergedArr;
     }
